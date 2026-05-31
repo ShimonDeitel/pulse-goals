@@ -174,3 +174,98 @@ footer a { color: var(--muted); margin: 0 10px; }
   .legal p, .legal li { color: #d8d3c7; }
   .device { box-shadow: 0 34px 80px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08); }
 }
+
+/* ============================================================
+   Micro-interactions — make the page feel alive
+   ============================================================ */
+
+/* Brand dot: a living "pulse" ring, on-brand for the product. */
+.brand .dot { position: relative; }
+.brand .dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: var(--signal); opacity: 0.55;
+  animation: pulsering 2.4s ease-out infinite;
+}
+@keyframes pulsering {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  70%  { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* Nav links: sliding underline on hover. */
+.navlinks a { position: relative; transition: opacity .2s ease; }
+.navlinks a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 100%;
+  background: var(--signal); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform .28s cubic-bezier(.2,.7,.2,1);
+}
+.navlinks a:hover::after { transform: scaleX(1); }
+
+/* Buttons: hover lift + press feedback. */
+.cta {
+  transition: transform .18s cubic-bezier(.2,.7,.2,1), box-shadow .22s ease, opacity .2s ease, background .2s ease;
+  will-change: transform;
+}
+.cta:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(145,35,28,0.28); }
+.cta:active { transform: translateY(0) scale(0.98); box-shadow: 0 4px 12px rgba(145,35,28,0.22); }
+.cta.secondary:hover { box-shadow: 0 10px 22px rgba(145,35,28,0.16); background: rgba(145,35,28,0.06); }
+
+/* Cards / steps / plans / shots: hover lift with a warmer shadow. */
+.card, .step, .plan {
+  transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, border-color .28s ease;
+  will-change: transform;
+}
+.card:hover, .step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(10,10,10,0.12);
+  border-color: rgba(145,35,28,0.28);
+}
+.plan:hover { transform: translateY(-6px); box-shadow: 0 18px 44px rgba(10,10,10,0.14); }
+.plan.featured:hover { box-shadow: 0 20px 50px rgba(201,162,39,0.22); }
+
+/* Card icon: gentle pop when its card is hovered. */
+.card .ico { transition: transform .3s cubic-bezier(.2,.7,.2,1), background .3s ease; }
+.card:hover .ico { transform: scale(1.12) rotate(-4deg); background: rgba(145,35,28,0.16); }
+
+/* Step number: subtle spin-in feel on hover. */
+.step .n { transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+.step:hover .n { transform: scale(1.1) rotate(6deg); }
+
+/* Screenshot devices: lift + lighten shadow on hover. */
+.shot .device { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease; }
+.shot:hover .device { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 40px 90px rgba(10,10,10,0.35); }
+
+/* FAQ: animate the open/close marker + reveal the answer. */
+.faq summary::after { transition: transform .25s ease; }
+.faq details[open] summary::after { transform: rotate(180deg); }
+.faq details { transition: border-color .25s ease, box-shadow .25s ease; }
+.faq details[open] { box-shadow: 0 8px 24px rgba(10,10,10,0.07); }
+.faq details[open] p { animation: faqfade .35s ease both; }
+@keyframes faqfade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* Footer links: same sliding underline cue. */
+footer a { position: relative; transition: color .2s ease; }
+footer a:hover { color: var(--ink); text-decoration: none; }
+
+/* Scroll-reveal: only active once JS adds .reveal-on (no-JS sees everything). */
+.reveal-on .reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.reveal-on .reveal.in { opacity: 1; transform: none; }
+
+/* Hero entrance on load. */
+.reveal-on .hero-copy { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.reveal-on .hero-device { animation: rise .8s cubic-bezier(.2,.7,.2,1) .12s both; }
+@keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+
+/* Respect users who prefer less motion — disable all of the above. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .brand .dot::after { animation: none; display: none; }
+  .reveal-on .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .reveal-on .hero-copy, .reveal-on .hero-device { animation: none; }
+  .cta, .card, .step, .plan, .shot .device, .card .ico, .step .n { transition: none; }
+  .cta:hover, .card:hover, .step:hover, .plan:hover, .shot:hover .device { transform: none; }
+  .faq details[open] p { animation: none; }
+}

@@ -6,6 +6,12 @@
   <title>Privacy Policy — Pulse</title>
   <meta name="description" content="Pulse Privacy Policy." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#91231C" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0E0C08" media="(prefers-color-scheme: dark)" />
 </head>
 <body>
   <header>
@@ -34,9 +40,9 @@
 
       <h2>2. Information We Collect</h2>
       <ul>
-        <li>a) Account data — email, display name, authentication provider identifier, encrypted password (if email sign-in), account creation timestamp, language, region.</li>
+        <li>a) Account data — email, display name, authentication provider identifier, encrypted password (if email sign-in), account creation timestamp.</li>
         <li>b) Goal data — goal titles, descriptions, categories, deadlines, motivation level, time-per-day, skill level, obstacles, AI-generated pulses and roadmaps, completion timestamps, progress notes, photos and free-text proof you attach.</li>
-        <li>c) Mentor chat — messages you send to the AI mentor, AI responses, selected personality, and goal context.</li>
+        <li>c) Coach chat — messages you send to the AI coach, AI responses, selected personality, and goal context.</li>
         <li>d) Photos — any image you attach as proof or submit to Photo Transformation. Photos are transmitted to our AI provider in transient memory for analysis only and are NOT retained on our servers after the response returns to your device. We do not perform biometric identification.</li>
         <li>e) Device &amp; diagnostic — device model, OS version, App version, time zone, locale, anonymized installation identifier, crash reports.</li>
         <li>f) Notification state — your on/off preference and the AI-determined local schedule.</li>
@@ -48,7 +54,7 @@
         <li>Operate, secure, and improve the Service.</li>
         <li>Generate AI-powered roadmaps, mentor responses, and photo analysis (transient processing).</li>
         <li>Send adaptive notifications based on your goals, streak, and deadline.</li>
-        <li>Sync your data across your devices via Apple iCloud / CloudKit and via our cloud backend (Firebase Firestore).</li>
+        <li>Sync your data privately across your devices via Apple iCloud / CloudKit.</li>
         <li>Detect and prevent fraud, abuse, and violations of the Terms.</li>
         <li>Comply with legal obligations and respond to lawful requests.</li>
       </ul>
@@ -67,8 +73,7 @@
       <h2>5. Categories of Recipients &amp; Sub-Processors</h2>
       <p>We share data only with these categories of recipients, each bound to confidentiality:</p>
       <ul>
-        <li>Groq, Inc. — AI inference for mentor chat, roadmap generation, translation, and photo analysis. https://groq.com</li>
-        <li>Google LLC (Firebase) — Authentication, Cloud Firestore, Cloud Storage. Located in the US/EU.</li>
+        <li>DeepSeek — AI inference for mentor chat, roadmap generation, translation, and image analysis.</li>
         <li>Apple, Inc. — iCloud / CloudKit, App Store payments, Sign in with Apple, push notification routing.</li>
         <li>Our hosting and infrastructure providers (subject to confidentiality).</li>
         <li>Law-enforcement / government — only when legally required (with notice to you where lawful).</li>
@@ -157,7 +162,7 @@
       <p>The mobile App does not use cookies. We do not embed any analytics SDKs, advertising SDKs, fingerprinting libraries, or cross-app tracking technologies. We do not engage in tracking as defined by the Apple App Tracking Transparency framework.</p>
 
       <h2>20. Automated Decision-Making</h2>
-      <p>AI output (roadmaps, probabilities, mentor messages) is generated automatically but does NOT produce legal or similarly significant effects on you within the meaning of GDPR Art. 22 or analogous laws. You may disregard, modify, or delete any AI output at any time. We do not engage in solely-automated profiling that has legal effect.</p>
+      <p>AI output (roadmaps, probabilities, coach messages) is generated automatically but does NOT produce legal or similarly significant effects on you within the meaning of GDPR Art. 22 or analogous laws. You may disregard, modify, or delete any AI output at any time. We do not engage in solely-automated profiling that has legal effect.</p>
 
       <h2>21. Data Breach Notification</h2>
       <p>In the event of a personal-data breach likely to result in a risk to your rights or freedoms, we will notify the competent supervisory authority within the timeframes required by applicable law (e.g., 72 hours under GDPR Art. 33) and will notify affected individuals where required.</p>
@@ -180,6 +185,6 @@
       <a href="mailto:s0533495227@gmail.com">s0533495227@gmail.com</a>
     </div>
   </footer>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script src="main.js" defer></script>
 </body>
 </html>
