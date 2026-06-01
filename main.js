@@ -13,6 +13,19 @@
   // If the user prefers reduced motion, leave everything fully visible.
   if (reduce) return;
 
+  // Scroll-progress bar: fill a thin top line as the page scrolls.
+  var bar = document.getElementById("scrollbar");
+  if (bar) {
+    var onScroll = function () {
+      var h = document.documentElement;
+      var max = (h.scrollHeight - h.clientHeight) || 1;
+      var pct = Math.min(100, Math.max(0, (h.scrollTop / max) * 100));
+      bar.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   // Opt the page into reveal styling (CSS hides .reveal only under .reveal-on).
   document.documentElement.classList.add("reveal-on");
 

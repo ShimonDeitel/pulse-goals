@@ -259,6 +259,28 @@ footer a:hover { color: var(--ink); text-decoration: none; }
 .reveal-on .hero-device { animation: rise .8s cubic-bezier(.2,.7,.2,1) .12s both; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 
+/* Scroll-progress bar — a thin signal-red line at the very top that fills as
+   you scroll. Subtle "alive" cue that also aids orientation on long pages. */
+.scrollbar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--signal), var(--gold));
+  z-index: 50; border-radius: 0 2px 2px 0;
+  transition: width .08s linear;
+}
+
+/* "Free" tag on the Custom Workout card. */
+.freetag {
+  font-size: 11px; font-weight: 700; color: var(--signal);
+  border: 1px solid var(--signal); border-radius: 999px;
+  padding: 1px 8px; margin-left: 6px; vertical-align: middle;
+  letter-spacing: 0.2px;
+}
+
+/* Hero device: a slow, gentle float so the screenshot feels live (not static).
+   Starts only after the load-in animation, and never under reduced-motion. */
+.reveal-on .hero-device { animation: rise .8s cubic-bezier(.2,.7,.2,1) .12s both, floaty 6s ease-in-out 1s infinite; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
 /* Respect users who prefer less motion — disable all of the above. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -268,4 +290,5 @@ footer a:hover { color: var(--ink); text-decoration: none; }
   .cta, .card, .step, .plan, .shot .device, .card .ico, .step .n { transition: none; }
   .cta:hover, .card:hover, .step:hover, .plan:hover, .shot:hover .device { transform: none; }
   .faq details[open] p { animation: none; }
+  .scrollbar { display: none; }
 }
