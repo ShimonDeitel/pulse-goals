@@ -14,15 +14,16 @@
   <meta name="theme-color" content="#0E0C08" media="(prefers-color-scheme: dark)" />
 </head>
 <body>
-  <header>
+  <header id="hdr">
     <nav>
       <a class="brand" href="index.html"><span class="dot"></span> Pulse</a>
       <div class="navlinks">
         <a href="index.html">Home</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
         <a href="about.html">About</a>
         <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a class="navcta" href="#download">Get the app</a>
       </div>
     </nav>
   </header>
@@ -31,7 +32,14 @@
 
   <main>
     <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="aurora a1"></span><span class="aurora a2"></span><span class="aurora a3"></span>
+        <svg class="ekg" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,100 L320,100 L350,100 L370,40 L400,160 L430,70 L450,100 L760,100 L788,100 L806,55 L828,150 L852,100 L1200,100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div class="hero-copy">
+        <span class="kicker">AI goal-achievement engine</span>
         <h1>A coach. A plan.<br/><span class="accent">A pulse.</span></h1>
         <p class="sub">Pulse turns any goal — getting fit, making money, learning a skill — into a daily, AI-built plan you actually follow. With a live form coach, meal scanning, and a mentor that never lets you drift.</p>
         <div class="hero-actions">
@@ -39,14 +47,22 @@
           <a class="cta secondary" href="#how">How it works</a>
         </div>
       </div>
-      <div class="hero-device">
+      <div class="hero-device" id="tilt">
         <div class="device"><img src="assets/01-dashboard.png" alt="Pulse dashboard showing today's pulses, active goal and streak" /></div>
       </div>
     </section>
 
+    <section class="statband" aria-label="At a glance">
+      <div class="stat"><div class="num"><span data-count="7">0</span></div><div class="lbl">goal types</div></div>
+      <div class="stat"><div class="num"><span data-count="500">0</span><span class="suf">+</span></div><div class="lbl">exercises tracked on-device</div></div>
+      <div class="stat"><div class="num"><span class="pre">$</span><span data-count="10">0</span></div><div class="lbl">a month for Pro</div></div>
+      <div class="stat"><div class="num"><span data-count="0">0</span></div><div class="lbl">ads &amp; trackers</div></div>
+    </section>
+
     <section class="section first" id="how">
-      <h2>How it works</h2>
-      <p class="lead">From a vague ambition to a daily plan in under a minute.</p>
+      <span class="eyebrow">How it works</span>
+      <h2>From a vague ambition to a daily plan</h2>
+      <p class="lead">In under a minute. Then Pulse keeps you moving, one pulse at a time.</p>
       <div class="steps">
         <div class="step"><div class="n">1</div><h3>Name your goal</h3><p>Tell Pulse what you want and when — your time, your level, your obstacles.</p></div>
         <div class="step"><div class="n">2</div><h3>AI builds the plan</h3><p>Pulse writes a step-by-step roadmap of daily "pulses" tailored exactly to you.</p></div>
@@ -56,6 +72,7 @@
     </section>
 
     <section class="section">
+      <span class="eyebrow">Capabilities</span>
       <h2>What Pulse does</h2>
       <p class="lead">Real AI, working on your actual goal — not generic tips.</p>
       <div class="grid">
@@ -64,11 +81,12 @@
         <div class="card"><div class="ico">⤢</div><h3>Live form coach</h3><p>Your camera counts every rep and corrects your form in real time — so a push-up is a real push-up.</p></div>
         <div class="card"><div class="ico">✦</div><h3>Transformation from a photo</h3><p>Upload a before and goal photo and Pulse designs your workouts and meals to get you there.</p></div>
         <div class="card"><div class="ico">❛</div><h3>An AI mentor</h3><p>Chat with a coach that knows your streak, your progress, and pushes you in the style that works for you.</p></div>
-        <div class="card"><div class="ico">♦</div><h3>Streaks &amp; community</h3><p>Daily check-ins, a real streak, and a community to keep you accountable.</p></div>
+        <div class="card"><div class="ico">🔒</div><h3>Private by design</h3><p>No ads, no trackers, no selling your data. Export or permanently delete everything from inside the app, anytime.</p></div>
       </div>
     </section>
 
     <section class="section">
+      <span class="eyebrow">A look inside</span>
       <h2>See it in action</h2>
       <p class="lead">A dark, focused interface built for execution. Swipe through real screens.</p>
       <div class="shots">
@@ -88,14 +106,11 @@
           <div class="device"><img src="assets/03-profile.png" alt="Profile with stats and plan" loading="lazy" /></div>
           <div class="cap"><b>Profile</b>Goals, pulses, streak &amp; your plan</div>
         </div>
-        <div class="shot">
-          <div class="device"><img src="assets/05-community.png" alt="Community direct messages" loading="lazy" /></div>
-          <div class="cap"><b>Community</b>Message and stay accountable</div>
-        </div>
       </div>
     </section>
 
     <section class="section">
+      <span class="eyebrow">Use it for anything</span>
       <h2>What you can build with Pulse</h2>
       <p class="lead">One engine, every kind of goal. Pick a type and Pulse shapes the plan around it.</p>
       <div class="grid">
@@ -110,13 +125,14 @@
     </section>
 
     <section class="section" id="pricing">
+      <span class="eyebrow">Pricing</span>
       <h2>Simple pricing</h2>
       <p class="lead">Start free. Upgrade when you want the AI to do the heavy lifting.</p>
       <div class="plans">
         <div class="plan">
           <div class="tag">Free</div>
           <div class="price">$0</div>
-          <ul><li>Create a goal</li><li>Add your own steps</li><li>Daily check-ins</li><li>Community access</li></ul>
+          <ul><li>Create a goal</li><li>Add your own steps</li><li>Daily check-in reminders</li><li>Custom Workout with rep counting</li></ul>
         </div>
         <div class="plan featured">
           <div class="tag">Pulse Pro</div>
@@ -128,15 +144,16 @@
     </section>
 
     <section class="section" id="faq">
+      <span class="eyebrow">FAQ</span>
       <h2>Frequently asked questions</h2>
-      <p class="lead">Everything about getting started, the AI, plans, privacy, and the community.</p>
+      <p class="lead">Everything about getting started, the AI, plans, and privacy.</p>
 
       <h3 style="font-size:16px;margin:18px 0 10px">Getting started</h3>
       <div class="faq">
         <details><summary>What is Pulse?</summary><p>Pulse turns any goal into a daily, AI-built plan of small actions called "pulses." Instead of just writing a goal down, you get a step-by-step roadmap, daily reminders, a streak, progress tracking, and an AI coach that keeps you moving.</p></details>
-        <details><summary>Is Pulse free to use?</summary><p>Yes. The Free plan lets you create a goal, add your own steps, keep a daily streak, and join the community. AI-built plans, meal scanning, the live form coach, and the AI coach are part of Pulse Pro.</p></details>
+        <details><summary>Is Pulse free to use?</summary><p>Yes. The Free plan lets you create a goal, add your own steps, keep a daily streak, and run Custom Workouts with on-device rep counting. AI-built plans, meal scanning, the live form coach, and the AI coach are part of Pulse Pro.</p></details>
         <details><summary>What platforms is Pulse on?</summary><p>Pulse is built for iPhone. An iPad-compatible build runs as well. There is no web app today.</p></details>
-        <details><summary>How do I create my first goal?</summary><p>Tap the New Goal button, pick a goal type (Transformation, Make Money, Master a Skill, Big Project, Daily Habit, or Anything Else), answer a few quick questions, and Pulse builds your plan.</p></details>
+        <details><summary>How do I create my first goal?</summary><p>Tap the New Goal button, pick a goal type (Transformation, Make Money, Master a Skill, Big Project, Daily Habit, Custom Workout, or Anything Else), answer a few quick questions, and Pulse builds your plan.</p></details>
         <details><summary>What is a "pulse"?</summary><p>A pulse is a single, concrete action for the day — small enough to actually do, specific enough that there's no guessing. Complete pulses to advance your goal, earn XP, and keep your streak alive.</p></details>
         <details><summary>How many goals can I have?</summary><p>Free includes one active goal. Pulse Pro includes unlimited goals.</p></details>
       </div>
@@ -147,7 +164,7 @@
         <details><summary>How does meal scanning work?</summary><p>Snap a photo of your meal and the AI estimates calories and macros, then logs it automatically and learns your patterns to shape your meal plan. Estimates are approximate, not a substitute for precise tracking.</p></details>
         <details><summary>How does the live form coach work?</summary><p>Your front camera tracks your body with on-device pose detection, counts reps, and gives real-time form feedback so a rep only counts when you actually hit the position.</p></details>
         <details><summary>Can the AI be wrong?</summary><p>Yes. AI output can be inaccurate, incomplete, or unsuitable for your situation. Treat it as informational and motivational — never as professional advice. See the <a href="terms.html">Terms of Use</a>.</p></details>
-        <details><summary>Why can't I use AI features on Free?</summary><p>AI plan generation, meal scanning, the form coach, and the AI coach are Pro features. On Free you can still create goals, add your own steps, keep a streak, and use the community. Free never runs the AI.</p></details>
+        <details><summary>Why can't I use AI features on Free?</summary><p>AI plan generation, meal scanning, the form coach, and the AI coach are Pro features. On Free you can still create goals, add your own steps, keep a streak, and run Custom Workouts. Free never runs the AI.</p></details>
         <details><summary>What does "Usage limit hit" mean?</summary><p>You've reached your plan's AI usage for now, or the service is briefly rate-limited. Your daily AI allowance resets the next day — wait a moment and try again. Pulse never fabricates a plan — if the AI can't run, it tells you.</p></details>
       </div>
 
@@ -168,10 +185,8 @@
         <details><summary>How do I delete my account?</summary><p>Profile → Account → Delete Account permanently erases your account and associated data. You can also export your data first from Profile → Privacy.</p></details>
       </div>
 
-      <h3 style="font-size:16px;margin:24px 0 10px">Community &amp; safety</h3>
+      <h3 style="font-size:16px;margin:24px 0 10px">Safety &amp; disclaimers</h3>
       <div class="faq">
-        <details><summary>What can I do in the community?</summary><p>Share posts and photos, run polls, post stories, follow people, and message others directly — a focused social space for people chasing goals.</p></details>
-        <details><summary>How do I report or block someone?</summary><p>Long-press a member or open their chat and choose Report or Block. Reported and blocked users are removed from your view.</p></details>
         <details><summary>Is Pulse a substitute for medical or financial advice?</summary><p>No. Pulse is a motivation and planning tool. Its AI can make mistakes and its guidance is general. Always consult a qualified professional before making health, medical, or financial decisions. See our <a href="terms.html">Terms of Use</a>.</p></details>
         <details><summary>Does Pulse guarantee I'll reach my goal?</summary><p>No. Pulse improves your odds by giving you a clear plan and daily accountability, but outcomes depend on you. There's a chance, not a guarantee.</p></details>
       </div>
@@ -181,6 +196,7 @@
 
     <section class="section" id="download">
       <div class="band">
+        <span class="eyebrow" style="justify-content:center">Get started</span>
         <h2>Get Pulse</h2>
         <p class="lead" style="margin-bottom:24px">Available on iPhone.</p>
         <a class="cta" href="#">Download on the App Store</a>
