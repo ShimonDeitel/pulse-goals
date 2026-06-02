@@ -117,3 +117,19 @@
     });
   }
 })();
+
+
+/* Mobile nav hamburger — separate IIFE so it runs even under reduced-motion. */
+(function () {
+  function init() {
+    var btn = document.querySelector(".navtoggle");
+    var menu = document.getElementById("navlinks");
+    if (!btn || !menu) return;
+    function setOpen(o) { menu.classList.toggle("open", o); btn.setAttribute("aria-expanded", o ? "true" : "false"); }
+    btn.addEventListener("click", function (e) { e.stopPropagation(); setOpen(!menu.classList.contains("open")); });
+    menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+    document.addEventListener("click", function (e) { if (menu.classList.contains("open") && !menu.contains(e.target) && !btn.contains(e.target)) setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
